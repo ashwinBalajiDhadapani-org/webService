@@ -1,9 +1,6 @@
 # webService
 Spring2022 - Assignment 1
 
-Student Name - Ashwin Balaji Dhandapani
-Student email - dhandapani.as@northeastern.edu
-NU ID - 002172214
 
 #### Pre-requisites:
 1. Install node (latest version)
