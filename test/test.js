@@ -17,7 +17,7 @@ describe('healthz API', ()=>{
         chai.request(server)
             .get('/healthz')
             .end((err, response)=>{
-                response.should.have.status(200);
+                response.should.have.status(500);
                 done();
             });
     });
@@ -26,7 +26,7 @@ describe('healthz API', ()=>{
         chai.request(server)
         .get('/healthz')
         .end((err, response)=>{
-            response.body.should.include(bodyMess);
+            response.body.should.include("abcd");
             done();
         });
     });
