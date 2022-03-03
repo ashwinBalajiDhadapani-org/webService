@@ -34,8 +34,8 @@ sudo systemctl enable --now postgresql-14
 # echo "#############################"
 # echo "## setting the port to 5432##"
 # echo "#############################"
-# # sudo ss -tunelp | grep 5432
-# sudo systemctl restart postgresql-14
+sudo ss -tunelp | grep 5432
+sudo systemctl restart postgresql-14
 echo "#############################"
 echo "########starting psql########"
 echo "#############################"
