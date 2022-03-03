@@ -57,4 +57,22 @@ npm install
 node index.js
 
 
+echo "########################"
+echo "#### Installing Git ####"
+echo "########################"
+
+sudo yum install git -y
+sleep 30
+
+mkdir webService
+cd webService
+git clone git@github.com:ashwinBalajiDhadapani-org/webService.git
+files=$(shopt -s nullglob dotglob; echo your/dir/*)
+if (( ${#files} ))
+then
+  echo "contains files"
+else 
+  echo "empty (or does not exist or is a file)"
+fi
+
 
