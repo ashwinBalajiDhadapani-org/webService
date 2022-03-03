@@ -24,17 +24,14 @@ baseurl=https://download.postgresql.org/pub/repos/yum/14/redhat/rhel-7-x86_64/
 enabled=1
 gpgcheck=1
 EOF
-sudo yum remove python3 -y
-sudo amazon-linux-extras enable python3 -y
-sudo yum clean metadata -y
-sudo yum install python3-3.6.* --disablerepo=amzn2-core -y
-sudo yum install postgresql postgresql-server postgresql-devel postgresql-contrib postgresql-docs
+sudo yum install postgresql
 cd /usr/pgsql-14/bin
 sudo ./postgresql-14-setup initdb
 sudo systemctl start postgresql-14
 sleep 15
 cd ~
-
+sudo -u postgres psql -c "alter role postgres with password 'password';"
+sudo -u postgres psql -c "grant all privileges on database postgres to postgres;"
 echo "########################"
 echo "#### Installing Git ####"
 echo "########################"
