@@ -7,6 +7,8 @@ sleep 5
 sudo amazon-linux-extras install epel
 sleep 5
 #node installation
+sudo yum makecache -y
+sleep 5
 sudo yum install -y gcc-c++ make 
 sleep 5
 curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash -
@@ -22,10 +24,8 @@ enabled=1
 gpgcheck=0
 EOF
 sleep 15
-sudo yum makecache -y
-sleep 5
 sudo yum install postgresql14 -y
-sudo yum install postgresql14-server -y
+# sudo yum install postgresql14-server -y
     # Initializing DB
 sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
     # Staring PSQL service
@@ -61,12 +61,9 @@ mkdir webService
 cd webService
 echo "#######Cloning using HTTPS########"
 git clone https://dhandapani.as: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@github.com/ashwinBalajiDhadapani-org/webService.git
-files=$(shopt -s nullglob dotglob; echo your/dir/*)
-if (( ${#files} ))
-then
-  echo "contains files"
-else 
-  echo "empty (or does not exist or is a file)"
-fi
+cd webService
+npm install
+node index.js
+
 
 
