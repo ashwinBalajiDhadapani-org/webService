@@ -28,13 +28,12 @@ sudo yum remove python3 -y
 sudo amazon-linux-extras enable python3 -y
 sudo yum clean metadata -y
 sudo yum install python3-3.6.* --disablerepo=amzn2-core -y
-sudo yum install postgresql14 postgresql14-contrib
+sudo yum install postgresql postgresql-server postgresql-devel postgresql-contrib postgresql-docs
 cd /usr/pgsql-14/bin
 sudo ./postgresql-14-setup initdb
 sudo systemctl start postgresql-14
 sleep 15
 cd ~
-
 
 echo "########################"
 echo "#### Installing Git ####"
