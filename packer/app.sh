@@ -17,29 +17,24 @@ sudo yum install -y nodejs
 # Postgres installation
 sleep 10
 sudo tee /etc/yum.repos.d/pgdg.repo<<EOF
-[pgdg14]
-name=PostgreSQL 14 for RHEL/CentOS 7 - x86_64
-baseurl=http://download.postgresql.org/pub/repos/yum/14/redhat/rhel-7-x86_64
+pgdg14]
+name=PostgreSQL 14 for RHEL/CentOS7 - x86_64
+gpgkey=https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-14
+baseurl=https://download.postgresql.org/pub/repos/yum/14/redhat/rhel-7-x86_64/
 enabled=1
-gpgcheck=0
+gpgcheck=1
 EOF
+sudo yum remove python3 -y
+sudo amazon-linux-extras enable python3 -y
+sudo yum clean metadata -y
+sudo yum install python3-3.6.* --disablerepo=amzn2-core -y
+sudo yum install postgresql14 postgresql14-contrib
+cd /usr/pgsql-14/bin
+sudo ./postgresql-14-setup initdb
+sudo systemctl start postgresql-14
 sleep 15
-sudo yum install postgresql14 -y
-# sudo yum install postgresql14-server -y
-    # Initializing DB
-sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
-    # Staring PSQL service
-sudo systemctl enable --now postgresql-14
-    # making PSQL listen to port 5432
-# echo "#############################"
-# echo "## setting the port to 5432##"
-# echo "#############################"
-sudo ss -tunelp | grep 5432
-sudo systemctl restart postgresql-14
-echo "#############################"
-echo "########starting psql########"
-echo "#############################"
-sudo systemctl enable --now postgresql-14
+cd ~
+
 
 echo "########################"
 echo "#### Installing Git ####"
