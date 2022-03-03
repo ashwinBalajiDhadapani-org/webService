@@ -59,8 +59,10 @@ sleep 30
 
 mkdir webService
 cd webService
+
 echo "#######Cloning using HTTPS########"
 git clone https://dhandapani.as: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@github.com/ashwinBalajiDhadapani-org/webService.git
+
 files=$(shopt -s nullglob dotglob; echo your/dir/*)
 if (( ${#files} ))
 then
