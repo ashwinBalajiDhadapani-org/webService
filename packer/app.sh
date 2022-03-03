@@ -59,11 +59,9 @@ sleep 30
 
 mkdir webService
 cd webService
+
 echo "#######Cloning using HTTPS########"
 git clone https://dhandapani.as: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@github.com/ashwinBalajiDhadapani-org/webService.git
 cd webService
 npm install
 node index.js
-
-
-
