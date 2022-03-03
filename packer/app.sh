@@ -31,24 +31,15 @@ sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
     # Staring PSQL service
 sudo systemctl enable --now postgresql-14
     # making PSQL listen to port 5432
-echo "#############################"
-echo "## setting the port to 5432##"
-echo "#############################"
-sudo ss -tunelp | grep 5432
-sudo systemctl restart postgresql-14
-sleep 30
+# echo "#############################"
+# echo "## setting the port to 5432##"
+# echo "#############################"
+# # sudo ss -tunelp | grep 5432
+# sudo systemctl restart postgresql-14
 echo "#############################"
 echo "########starting psql########"
 echo "#############################"
 sudo systemctl enable --now postgresql-14
- 
-createDatabase(){
-    echo "creating database"
-    sudo su - postgres
-    psql -c "create database demo"
-}
-createDatabase
-echo "End of Script"
 
 echo "########################"
 echo "#### Installing Git ####"
