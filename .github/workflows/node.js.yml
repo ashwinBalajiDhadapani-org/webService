@@ -18,7 +18,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       env:
-        CI=true npm test
+        ci=true 
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
