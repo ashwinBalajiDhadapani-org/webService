@@ -5,14 +5,14 @@ files:
     destination: /home/ec2-user/webService
 hooks:
   ApplicationStop:
-    location: scripts/application_stop.sh
+    location: code-deploy/applicationStop.sh
     timeout: 300
     runas: ec2-user
   BeforeInstall:
-    location: scripts/before_install.sh
+    location: code-deploy/beforeInstall.sh
     timeout: 300
     runas: ec2-user
   ApplicationStart:
-    location: scripts/application_start.sh
+    location: code-deploy/applicationStart.sh
     timeout: 300
     runas: ec2-user
